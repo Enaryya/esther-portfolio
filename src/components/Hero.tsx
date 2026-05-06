@@ -1,60 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 const CONSULT_URL = "https://calendar.app.google/nvsXNjnM2pk73BJJ6";
-const HERO_KEY = "esther_portfolio_hero_photo";
 
 export default function Hero() {
-  const zoneRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    const zone = zoneRef.current;
-    const img = imgRef.current;
-    const input = inputRef.current;
-    if (!zone || !img || !input) return;
-
-    const saved = localStorage.getItem(HERO_KEY);
-    if (saved) applyPhoto(saved);
-
-    function applyPhoto(src: string) {
-      if (!img || !zone) return;
-      img.src = src;
-      img.style.display = "block";
-      zone.classList.add("has-photo");
-    }
-
-    zone.addEventListener("click", (e) => {
-      if ((e.target as HTMLElement).closest(".del-btn")) return;
-      input.click();
-    });
-
-    input.addEventListener("change", (e) => {
-      const file = (e.target as HTMLInputElement).files?.[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        const url = ev.target?.result as string;
-        try { localStorage.setItem(HERO_KEY, url); } catch {}
-        applyPhoto(url);
-      };
-      reader.readAsDataURL(file);
-    });
-  }, []);
-
-  function handleDelete(e: React.MouseEvent) {
-    e.stopPropagation();
-    const img = imgRef.current;
-    const zone = zoneRef.current;
-    if (!img || !zone) return;
-    img.src = "";
-    img.style.display = "none";
-    zone.classList.remove("has-photo");
-    localStorage.removeItem(HERO_KEY);
-  }
-
   return (
     <section
       id="hero"
@@ -122,7 +72,7 @@ export default function Hero() {
           I sit at the intersection of content strategy, demand generation, and GTM execution — building the messaging, pipeline, and content engine that connect them. Full-cycle sales too: prospecting, discovery, closing. Not just the top of the funnel.
         </p>
 
-        {/* CTA ROW — includes Book a Consultation */}
+        {/* CTAs */}
         <div
           className="fade-up fade-up-4"
           style={{ display: "flex", gap: "1rem", marginTop: "2.5rem", flexWrap: "wrap" }}
@@ -204,45 +154,32 @@ export default function Hero() {
       </div>
 
       {/* RIGHT — photo panel */}
-      <div style={{ position: "relative", background: "var(--espresso)", overflow: "hidden", display: "flex", alignItems: "stretch" }} className="hero-right">
-        <div style={{ position: "relative", width: "100%", display: "flex", flexDirection: "column" }}>
-          <div
-            ref={zoneRef}
-            className="photo-zone"
-            style={{ flex: 1, cursor: "pointer" }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img ref={imgRef} className="uploaded" alt="Esther Appiah-Fei" style={{ display: "none", objectPosition: "center top" }} />
-            <div className="photo-overlay" style={{
-              background: "radial-gradient(ellipse 60% 60% at 30% 40%, rgba(192,90,53,0.22) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 70% 70%, rgba(196,139,58,0.13) 0%, transparent 60%)",
-            }}>
-              <div style={{
-                width: 56, height: 56, borderRadius: "50%",
-                border: "1.5px solid rgba(250,247,242,0.25)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-              }}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" width="22" height="22" style={{ opacity: 0.5 }}>
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <path d="M21 15l-5-5L5 21" />
-                </svg>
-              </div>
-              <div style={{ fontFamily: "monospace", fontSize: "0.68rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cream)", opacity: 0.35 }}>
-                Click to add portrait photo
-              </div>
-            </div>
-            <button className="del-btn" onClick={handleDelete}>✕</button>
-            <input ref={inputRef} type="file" accept="image/*" style={{ display: "none" }} />
-          </div>
+      <div style={{ position: "relative", background: "var(--espresso)", overflow: "hidden", display: "flex", flexDirection: "column" }} className="hero-right">
+        {/* Photo — fills the panel */}
+        <div style={{ flex: 1, position: "relative", overflow: "hidden" }}>
+          <Image
+            src="/esther-hero.jpg"
+            alt="Esther Appiah-Fei at the Google Accra AI Community Centre"
+            fill
+            priority
+            style={{ objectFit: "cover", objectPosition: "center top" }}
+            sizes="(max-width: 900px) 100vw, 50vw"
+          />
+          {/* subtle gradient overlay so quote bar reads cleanly */}
+          <div style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(to bottom, transparent 55%, rgba(30,26,21,0.75) 100%)",
+          }} />
+        </div>
 
-          {/* Quote bar */}
-          <div style={{ padding: "2rem 2.5rem", position: "relative", zIndex: 2 }}>
-            <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontStyle: "italic", color: "var(--cream)", opacity: 0.88, lineHeight: 1.5, maxWidth: "32ch" }}>
-              &ldquo;Marketing can&rsquo;t be green when a business is red.&rdquo;
-            </p>
-            <div style={{ fontSize: "0.72rem", color: "var(--amber)", letterSpacing: "0.07em", marginTop: "0.5rem", opacity: 0.75 }}>
-              Esther Appiah-Fei, Communications and GTM Strategist
-            </div>
+        {/* Quote bar */}
+        <div style={{ padding: "2rem 2.5rem", position: "relative", zIndex: 2, background: "var(--espresso)" }}>
+          <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontStyle: "italic", color: "var(--cream)", opacity: 0.88, lineHeight: 1.5, maxWidth: "32ch" }}>
+            &ldquo;Marketing can&rsquo;t be green when a business is red.&rdquo;
+          </p>
+          <div style={{ fontSize: "0.72rem", color: "var(--amber)", letterSpacing: "0.07em", marginTop: "0.5rem", opacity: 0.75 }}>
+            Esther Appiah-Fei, Communications and GTM Strategist
           </div>
         </div>
       </div>
@@ -250,7 +187,7 @@ export default function Hero() {
       <style>{`
         @media (max-width: 900px) {
           .hero-section { grid-template-columns: 1fr !important; }
-          .hero-right { min-height: 360px; }
+          .hero-right { min-height: 420px; }
           .hero-left { padding: 5.5rem 1.5rem 3rem !important; }
         }
       `}</style>

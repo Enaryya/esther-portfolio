@@ -1,68 +1,16 @@
-"use client";
+import Image from "next/image";
 
-import { useEffect, useRef } from "react";
-
-const ABOUT_KEY = "esther_portfolio_about_photo";
+const skills = [
+  "Demand Generation", "GTM", "PR & Communications", "Sales and Business Development",
+  "Journalism", "Brand Storytelling", "Partnerships", "Account Based Marketing",
+  "SEO Writing and Content Strategy", "Product Marketing",
+];
 
 export default function About() {
-  const zoneRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    const zone = zoneRef.current;
-    const img = imgRef.current;
-    const input = inputRef.current;
-    if (!zone || !img || !input) return;
-
-    const saved = localStorage.getItem(ABOUT_KEY);
-    if (saved) applyPhoto(saved);
-
-    function applyPhoto(src: string) {
-      if (!img || !zone) return;
-      img.src = src;
-      img.style.display = "block";
-      zone.classList.add("has-photo");
-    }
-
-    zone.addEventListener("click", (e) => {
-      if ((e.target as HTMLElement).closest(".del-btn")) return;
-      input.click();
-    });
-
-    input.addEventListener("change", (e) => {
-      const file = (e.target as HTMLInputElement).files?.[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        const url = ev.target?.result as string;
-        try { localStorage.setItem(ABOUT_KEY, url); } catch {}
-        applyPhoto(url);
-      };
-      reader.readAsDataURL(file);
-    });
-  }, []);
-
-  function handleDelete(e: React.MouseEvent) {
-    e.stopPropagation();
-    const img = imgRef.current;
-    const zone = zoneRef.current;
-    if (!img || !zone) return;
-    img.src = "";
-    img.style.display = "none";
-    zone.classList.remove("has-photo");
-    localStorage.removeItem(ABOUT_KEY);
-  }
-
-  const skills = [
-    "Demand Generation", "GTM", "PR & Communications", "Sales and Business Development",
-    "Journalism", "Brand Storytelling", "Partnerships", "Account Based Marketing",
-    "SEO Writing and Content Strategy", "Product Marketing",
-  ];
-
   return (
     <section id="about" style={{ background: "var(--cream-mid)", padding: "6rem 3rem" }} className="about-section">
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: "5rem", maxWidth: 1100, margin: "0 auto", alignItems: "start" }} className="about-grid">
+
         {/* LEFT — sticky */}
         <div style={{ position: "sticky", top: 90 }} className="about-left">
           <div className="section-label">About</div>
@@ -73,31 +21,29 @@ export default function About() {
             lineHeight: 1.1,
             letterSpacing: "-0.02em",
             color: "var(--espresso)",
-            marginBottom: "0.75rem",
+            marginBottom: "2rem",
           }}>
             Storyteller.<br />Revenue Operations<br />Strategist.<br />Bridge-builder.
           </h2>
 
-          {/* Photo zone */}
+          {/* About photo */}
           <div
-            ref={zoneRef}
-            className="photo-zone scroll-reveal"
-            style={{ marginTop: "2rem", width: "100%", aspectRatio: "4/5", maxWidth: 260 }}
+            className="scroll-reveal"
+            style={{
+              width: "100%",
+              aspectRatio: "4/5",
+              maxWidth: 260,
+              position: "relative",
+              overflow: "hidden",
+            }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img ref={imgRef} className="uploaded" alt="Esther Appiah-Fei" style={{ display: "none" }} />
-            <div className="photo-overlay">
-              <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" width="28" height="28" style={{ opacity: 0.25 }}>
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <path d="M21 15l-5-5L5 21" />
-              </svg>
-              <div style={{ fontFamily: "monospace", fontSize: "0.62rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cream)", opacity: 0.3 }}>
-                Add photo
-              </div>
-            </div>
-            <button className="del-btn" onClick={handleDelete}>✕</button>
-            <input ref={inputRef} type="file" accept="image/*" style={{ display: "none" }} />
+            <Image
+              src="/esther-about.jpg"
+              alt="Esther Appiah-Fei working"
+              fill
+              style={{ objectFit: "cover", objectPosition: "center top" }}
+              sizes="260px"
+            />
           </div>
         </div>
 
