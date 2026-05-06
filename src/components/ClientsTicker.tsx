@@ -1,4 +1,5 @@
 const clients = [
+  { name: "CLOUDPLEXO", bg: "#0a0e3f", color: "#fff", italic: false },
   { name: "SUBJCT", bg: "#111", color: "#fff", italic: false },
   { name: "YOUTH&EARTH", bg: "#3a5240", color: "#fff", italic: false },
   { name: "MOVEMEBACK", bg: "#0099cc", color: "#fff", italic: false },
