@@ -1,47 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-
 const CONSULT_URL = "https://calendar.app.google/yR45gSxZV96s3ji59";
+const HERO_PHOTO = "https://tl9be6ngkrkozmdl.public.blob.vercel-storage.com/portfolio/hero/1778029930219-image-1778026178285.jpg";
 
 export default function Hero() {
-  const [photoUrl, setPhotoUrl] = useState<string | null>(null);
-  const [uploading, setUploading] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  // Fetch the server-stored photo on every visit — visible to all
-  useEffect(() => {
-    fetch("/api/photo?slot=hero")
-      .then((r) => r.json())
-      .then((data) => { if (data.url) setPhotoUrl(data.url); })
-      .catch(() => {});
-  }, []);
-
-  async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setUploading(true);
-
-    const form = new FormData();
-    form.append("file", file);
-    form.append("slot", "hero");
-
-    try {
-      const res = await fetch("/api/upload", { method: "POST", body: form });
-      const data = await res.json();
-      if (data.url) setPhotoUrl(data.url);
-    } catch {}
-
-    setUploading(false);
-  }
-
-  async function handleDelete(e: React.MouseEvent) {
-    e.stopPropagation();
-    setPhotoUrl(null);
-    // Optionally delete server-side — for now just hides locally
-    // A full delete call can be wired here if needed
-  }
-
   return (
     <section
       id="hero"
@@ -134,108 +96,29 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* RIGHT — photo panel (server-stored, visible to everyone) */}
-      <div style={{ position: "relative", background: "var(--espresso)", overflow: "hidden", display: "flex", alignItems: "stretch" }} className="hero-right">
-        <div style={{ position: "relative", width: "100%", display: "flex", flexDirection: "column" }}>
+      {/* RIGHT — photo panel */}
+      <div style={{ position: "relative", background: "var(--espresso)", overflow: "hidden", display: "flex", flexDirection: "column" }} className="hero-right">
+        {/* Photo — fills the panel */}
+        <div style={{ flex: 1, position: "relative", overflow: "hidden" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={HERO_PHOTO}
+            alt="Esther Appiah-Fei"
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
+          />
+          <div style={{
+            position: "absolute", inset: 0,
+            background: "linear-gradient(to bottom, transparent 60%, rgba(30,26,21,0.6) 100%)",
+          }} />
+        </div>
 
-          {/* Photo zone */}
-          <div
-            onClick={() => !photoUrl && inputRef.current?.click()}
-            style={{
-              flex: 1, position: "relative", overflow: "hidden", cursor: photoUrl ? "default" : "pointer",
-              minHeight: 300,
-            }}
-          >
-            {/* Photo */}
-            {photoUrl && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={photoUrl}
-                alt="Esther Appiah-Fei"
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
-              />
-            )}
-
-            {/* Upload placeholder — shown when no photo */}
-            {!photoUrl && (
-              <div style={{
-                position: "absolute", inset: 0,
-                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem",
-                background: "radial-gradient(ellipse 60% 60% at 30% 40%, rgba(192,90,53,0.22) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 70% 70%, rgba(196,139,58,0.13) 0%, transparent 60%)",
-              }}>
-                <div style={{ width: 56, height: 56, borderRadius: "50%", border: "1.5px solid rgba(250,247,242,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" width="22" height="22" style={{ opacity: 0.5 }}>
-                    <rect x="3" y="3" width="18" height="18" rx="2" />
-                    <circle cx="8.5" cy="8.5" r="1.5" />
-                    <path d="M21 15l-5-5L5 21" />
-                  </svg>
-                </div>
-                <div style={{ fontFamily: "monospace", fontSize: "0.68rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cream)", opacity: 0.35 }}>
-                  Click to add portrait photo
-                </div>
-              </div>
-            )}
-
-            {/* Uploading spinner */}
-            {uploading && (
-              <div style={{
-                position: "absolute", inset: 0, background: "rgba(30,26,21,0.6)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-              }}>
-                <div style={{ color: "var(--cream)", fontFamily: "monospace", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.7 }}>
-                  Uploading…
-                </div>
-              </div>
-            )}
-
-            {/* Change / delete controls — visible when photo present */}
-            {photoUrl && (
-              <div style={{
-                position: "absolute", top: 12, right: 12, display: "flex", gap: "0.5rem", zIndex: 10,
-              }}>
-                <button
-                  onClick={(e) => { e.stopPropagation(); inputRef.current?.click(); }}
-                  style={{
-                    background: "rgba(0,0,0,0.55)", color: "#fff", border: "none",
-                    padding: "0.3rem 0.7rem", fontSize: "0.7rem", letterSpacing: "0.06em",
-                    textTransform: "uppercase", cursor: "pointer", transition: "background 0.2s",
-                  }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "rgba(192,90,53,0.85)")}
-                  onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.55)")}
-                >
-                  Change
-                </button>
-                <button
-                  onClick={handleDelete}
-                  style={{
-                    background: "rgba(0,0,0,0.55)", color: "#fff", border: "none",
-                    borderRadius: "50%", width: 30, height: 30, fontSize: "0.85rem",
-                    cursor: "pointer", transition: "background 0.2s",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                  }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "rgba(192,90,53,0.85)")}
-                  onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.55)")}
-                >✕</button>
-              </div>
-            )}
-
-            <input
-              ref={inputRef}
-              type="file"
-              accept="image/*"
-              style={{ display: "none" }}
-              onChange={handleFileChange}
-            />
-          </div>
-
-          {/* Quote bar */}
-          <div style={{ padding: "2rem 2.5rem", position: "relative", zIndex: 2 }}>
-            <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontStyle: "italic", color: "var(--cream)", opacity: 0.88, lineHeight: 1.5, maxWidth: "32ch" }}>
-              &ldquo;Marketing can&rsquo;t be green when a business is red.&rdquo;
-            </p>
-            <div style={{ fontSize: "0.72rem", color: "var(--amber)", letterSpacing: "0.07em", marginTop: "0.5rem", opacity: 0.75 }}>
-              Esther Appiah-Fei, Communications and GTM Strategist
-            </div>
+        {/* Quote bar */}
+        <div style={{ padding: "2rem 2.5rem", position: "relative", zIndex: 2, background: "var(--espresso)" }}>
+          <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontStyle: "italic", color: "var(--cream)", opacity: 0.88, lineHeight: 1.5, maxWidth: "32ch" }}>
+            &ldquo;Marketing can&rsquo;t be green when a business is red.&rdquo;
+          </p>
+          <div style={{ fontSize: "0.72rem", color: "var(--amber)", letterSpacing: "0.07em", marginTop: "0.5rem", opacity: 0.75 }}>
+            Esther Appiah-Fei, Communications and GTM Strategist
           </div>
         </div>
       </div>
