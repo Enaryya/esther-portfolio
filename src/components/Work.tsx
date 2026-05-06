@@ -49,18 +49,18 @@ export default function Work() {
               key={i}
               className="scroll-reveal"
               style={{
-                background: c.featured ? "#f5ede4" : "var(--cream-mid)",
+                background: c.featured ? "#ede0ff" : "var(--cream-mid)",
                 padding: "2.5rem",
                 display: "flex",
                 flexDirection: "column",
                 gap: "0.75rem",
-                border: c.featured ? "1px solid #e8d9ca" : "1px solid var(--border)",
+                border: c.featured ? "1px solid #d8c0f8" : "1px solid var(--border)",
                 gridRow: c.featured ? "span 2" : undefined,
                 transition: "background 0.2s",
                 cursor: "default",
               }}
-              onMouseEnter={e => (e.currentTarget.style.background = c.featured ? "#eee0d3" : "#e8ddd3")}
-              onMouseLeave={e => (e.currentTarget.style.background = c.featured ? "#f5ede4" : "var(--cream-mid)")}
+              onMouseEnter={e => (e.currentTarget.style.background = c.featured ? "#e2d0ff" : "#e8daf8")}
+              onMouseLeave={e => (e.currentTarget.style.background = c.featured ? "#ede0ff" : "var(--cream-mid)")}
             >
               <div style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--terracotta)" }}>
                 {c.tag}

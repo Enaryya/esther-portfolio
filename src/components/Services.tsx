@@ -50,12 +50,12 @@ export default function Services() {
               key={s.num}
               className="service-card scroll-reveal"
               style={{
-                background: "#231f1b",
+                background: "#220c40",
                 padding: "2.5rem",
                 transition: "background 0.2s",
               }}
-              onMouseEnter={e => (e.currentTarget.style.background = "#2d2722")}
-              onMouseLeave={e => (e.currentTarget.style.background = "#231f1b")}
+              onMouseEnter={e => (e.currentTarget.style.background = "#2e1258")}
+              onMouseLeave={e => (e.currentTarget.style.background = "#220c40")}
             >
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.8rem", fontWeight: 600, color: "var(--terracotta)", marginBottom: "1.25rem", opacity: 0.7 }}>
                 {s.num}
@@ -63,7 +63,7 @@ export default function Services() {
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.2rem", fontWeight: 600, color: "var(--cream)", lineHeight: 1.2, marginBottom: "0.75rem" }}>
                 {s.title}
               </div>
-              <p style={{ fontSize: "0.875rem", lineHeight: 1.7, color: "#a89d91" }}>
+              <p style={{ fontSize: "0.875rem", lineHeight: 1.7, color: "#b8a8d0" }}>
                 {s.desc}
               </p>
             </div>

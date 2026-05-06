@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer style={{
-      background: "#120f0c",
+      background: "#110720",
       padding: "1.75rem 3rem",
       display: "flex",
       alignItems: "center",
@@ -9,10 +9,10 @@ export default function Footer() {
       flexWrap: "wrap",
       gap: "1rem",
     }} className="footer">
-      <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.9rem", color: "#5a4e44" }}>
+      <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.9rem", color: "#5a4878" }}>
         Esther Owusua Appiah-Fei
       </div>
-      <div style={{ fontSize: "0.72rem", color: "#3a3028", letterSpacing: "0.04em" }}>
+      <div style={{ fontSize: "0.72rem", color: "#3a2858", letterSpacing: "0.04em" }}>
         © 2026 · Communications Strategist · Ghana
       </div>
 

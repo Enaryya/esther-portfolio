@@ -18,7 +18,7 @@ export default function Contact() {
         }}>
           Ready to drive revenue?
         </h2>
-        <p style={{ fontSize: "1rem", lineHeight: 1.75, color: "#a89d91", marginBottom: "2.75rem", fontWeight: 300 }}>
+        <p style={{ fontSize: "1rem", lineHeight: 1.75, color: "#b8a8d0", marginBottom: "2.75rem", fontWeight: 300 }}>
           If you are building pipeline, closing partnerships, launching into new markets, or need a demand generation strategy that actually converts, let&rsquo;s talk. Sales, business development, and revenue-focused marketing are what I do.
         </p>
 
@@ -55,11 +55,11 @@ export default function Contact() {
               textDecoration: "none",
               background: "transparent",
               color: "var(--cream)",
-              border: "1.5px solid #4a3f35",
+              border: "1.5px solid #3d2070",
               transition: "border-color 0.2s, color 0.2s",
             }}
             onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "var(--amber)"; el.style.color = "var(--amber)"; }}
-            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "#4a3f35"; el.style.color = "var(--cream)"; }}
+            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "#3d2070"; el.style.color = "var(--cream)"; }}
           >
             Connect on LinkedIn
           </a>
@@ -78,11 +78,11 @@ export default function Contact() {
               textDecoration: "none",
               background: "transparent",
               color: "var(--cream)",
-              border: "1.5px solid #4a3f35",
+              border: "1.5px solid #3d2070",
               transition: "border-color 0.2s, color 0.2s",
             }}
             onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "var(--amber)"; el.style.color = "var(--amber)"; }}
-            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "#4a3f35"; el.style.color = "var(--cream)"; }}
+            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "#3d2070"; el.style.color = "var(--cream)"; }}
           >
             esther@feigrowthlab.com
           </a>

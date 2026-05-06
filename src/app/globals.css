@@ -2,15 +2,15 @@
 @import "tailwindcss";
 
 :root {
-  --cream: #faf7f2;
-  --cream-mid: #f0e8de;
-  --espresso: #1e1a15;
-  --terracotta: #c05a35;
-  --amber: #c48b3a;
-  --muted: #7a6e62;
-  --border: #d9cfc4;
-  --service-dark: #2a2420;
-  --service-card: #231f1b;
+  --cream: #faf7ff;
+  --cream-mid: #f0e9fd;
+  --espresso: #1a0a30;
+  --terracotta: #7c3aed;
+  --amber: #a78bfa;
+  --muted: #7c6b94;
+  --border: #ddd0f0;
+  --service-dark: #2a0f4e;
+  --service-card: #220c40;
 }
 
 *, *::before, *::after {
@@ -209,7 +209,7 @@ body::before {
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
 }
-.btn-consult:hover { background: #a84928; transform: translateY(-2px); }
+.btn-consult:hover { background: #6d28d9; transform: translateY(-2px); }
 .btn-consult svg { width: 16px; height: 16px; flex-shrink: 0; }
 
 /* Consultation banner (mid-page) */
