@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-const CONSULT_URL = "https://calendar.app.google/nvsXNjnM2pk73BJJ6";
+const CONSULT_URL = "https://calendar.app.google/yR45gSxZV96s3ji59";
 
 export default function Hero() {
   return (

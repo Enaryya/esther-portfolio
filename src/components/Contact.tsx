@@ -1,6 +1,6 @@
 "use client";
 
-const CONSULT_URL = "https://calendar.app.google/nvsXNjnM2pk73BJJ6";
+const CONSULT_URL = "https://calendar.app.google/yR45gSxZV96s3ji59";
 
 export default function Contact() {
   return (
@@ -16,13 +16,12 @@ export default function Contact() {
           color: "var(--cream)",
           margin: "0.5rem 0 1.25rem",
         }}>
-          Ready to tell a better story?
+          Ready to drive revenue?
         </h2>
         <p style={{ fontSize: "1rem", lineHeight: 1.75, color: "#a89d91", marginBottom: "2.75rem", fontWeight: 300 }}>
-          Whether you need a communications strategist, a PR partner, a journalist&rsquo;s eye, or a writer who makes complex things feel effortless — let&rsquo;s talk about what you&rsquo;re building.
+          If you are building pipeline, closing partnerships, launching into new markets, or need a demand generation strategy that actually converts, let&rsquo;s talk. Sales, business development, and revenue-focused marketing are what I do.
         </p>
 
-        {/* CTA links — Book a Consultation is the primary CTA */}
         <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
           <a
             href={CONSULT_URL}
@@ -65,7 +64,7 @@ export default function Contact() {
             Connect on LinkedIn
           </a>
           <a
-            href="mailto:esthera759@gmail.com"
+            href="mailto:esther@feigrowthlab.com"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -85,7 +84,7 @@ export default function Contact() {
             onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "var(--amber)"; el.style.color = "var(--amber)"; }}
             onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "#4a3f35"; el.style.color = "var(--cream)"; }}
           >
-            Send an Email
+            esther@feigrowthlab.com
           </a>
         </div>
       </div>

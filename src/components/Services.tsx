@@ -1,6 +1,6 @@
 "use client";
 
-const CONSULT_URL = "https://calendar.app.google/nvsXNjnM2pk73BJJ6";
+const CONSULT_URL = "https://calendar.app.google/yR45gSxZV96s3ji59";
 
 const services = [
   { num: "01", title: "Demand Generation", desc: "Full-funnel demand gen strategy that fills pipeline and converts. Inbound and outbound programmes, lead scoring frameworks, nurture sequences, and campaign architecture built to generate qualified revenue, not just traffic." },
