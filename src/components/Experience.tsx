@@ -6,7 +6,7 @@ const items = [
     desc: "Building go-to-market messaging and brand voice for a company operating at the intersection of creativity and technology. Responsible for product narratives, marketing content, and positioning strategy that drives acquisition and engagement.",
   },
   {
-    date: "2024 — Present",
+    date: "2026 — Present",
     role: "AWS Cloud Sales",
     company: "CloudPlexo",
     desc: "Driving AWS cloud adoption and revenue across businesses, financial institutions, and technology companies and departments in Ghana. Leading end-to-end sales cycles — from prospecting and technical discovery through to commercial negotiation and close — positioning CloudPlexo as the go-to cloud solutions partner for organisations modernising their infrastructure.",
