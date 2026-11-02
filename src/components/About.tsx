@@ -1,9 +1,11 @@
 import Image from "next/image";
 
 const skills = [
-  "Demand Generation", "GTM", "PR & Communications", "Sales and Business Development",
-  "Journalism", "Brand Storytelling", "Partnerships", "Account Based Marketing",
-  "SEO Writing and Content Strategy", "Product Marketing",
+  "Sports Journalism", "AI Governance Reporting", "African Labour Market",
+  "GEO and AI Search Visibility", "Semantic SEO", "Content Strategy",
+  "Enterprise Sales", "Cybersecurity Sales", "Account Management",
+  "GTM Strategy", "Partnerships", "Cybersecurity Research",
+  "Agentic AI Research", "Fintech", "Development Strategy for Emerging Economies",
 ];
 
 export default function About() {
@@ -11,7 +13,7 @@ export default function About() {
     <section id="about" style={{ background: "var(--cream-mid)", padding: "6rem 3rem" }} className="about-section">
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: "5rem", maxWidth: 1100, margin: "0 auto", alignItems: "start" }} className="about-grid">
 
-        {/* LEFT — sticky */}
+        {/* LEFT sticky */}
         <div style={{ position: "sticky", top: 90 }} className="about-left">
           <div className="section-label">About</div>
           <h2 style={{
@@ -23,7 +25,7 @@ export default function About() {
             color: "var(--espresso)",
             marginBottom: "2rem",
           }}>
-            Storyteller.<br />Revenue Operations<br />Strategist.<br />Bridge-builder.
+            A journalist&rsquo;s research, put to commercial work
           </h2>
 
           {/* About photo */}
@@ -47,13 +49,13 @@ export default function About() {
           </div>
         </div>
 
-        {/* RIGHT — body */}
+        {/* RIGHT body */}
         <div className="about-body scroll-reveal">
           {[
-            <>Hi, I&rsquo;m Esther. Growth marketer, content strategist, and full-cycle sales professional based in Accra, working with brands across three continents. I specialise in one thing: turning complex ideas into clear, compelling stories that reach the right people — and then making sure those people convert. From BBC newsrooms to SaaS pipelines, outbound sequencing to editorial strategy, I close the loop between narrative and revenue. A great story that does not generate results (revenue) is just a nice story.</>,
-            <>My career spans journalism, B2B content strategy, sales, growth marketing, and digital communications. I have published features for the BBC, Al Jazeera, The Guardian, and Olympics.com. I have built outbound pipelines that converted at 80%, negotiated 40+ media partnerships, driven demand generation for AI and SaaS companies, and run lead gen operations for luxury real estate targeting diaspora and HNW buyers.</>,
-            <>I have written SEO content that ranks, cold emails that book meetings, pitch decks that close deals, and editorial pieces that make people stop scrolling. Whether it is a Semantic SEO strategy, an ABM campaign, a GTM launch, a full-cycle sales pipeline, or a 3,000-word feature with a clear point of view — I show up with research, craft, and a refusal to produce anything that does not have a job to do.</>,
-            <>I hold a BA in Communications from the <strong style={{ fontWeight: 600, color: "var(--terracotta)" }}>University of Media, Arts and Communication</strong> in Ghana, and a certification in Technology Sales Fundamentals from the University of Maryland.</>,
+            <>Hi, I&rsquo;m Esther, and I began my career as a sports journalist. Most of the stories I chased were ones that federations and broadcasters had overlooked, especially those of African women athletes. That reporting has since run in the BBC, Al Jazeera, The Guardian, Deutsche Welle, The Telegraph and Olympics.com, and it has been recognised at four consecutive editions of the AIPS Sport Media Awards. Over time my beat widened to technology, AI governance and the African labour market, because the questions I kept asking about athletes were really questions about work, money and power.</>,
+            <>Today I put that research to commercial use. Through London AI search agency Subjct AI, I plan and sub-edit GEO and semantic SEO programmes for UK brands such as Restore Information Management and Workspace Group, helping them get cited by ChatGPT, Perplexity and Google&rsquo;s AI Overviews. At Cyberteq Falcon, I manage enterprise cybersecurity accounts across banking, fintech, education, healthcare and energy. I have also built pipeline for an AWS Advanced Tier Partner and a global mobility platform, where my outbound converted at more than 80% from lead to meeting.</>,
+            <>Whatever the brief, my method stays the same. I research until I understand the reader or buyer better than the brief does, then I write and sell in plain language that a busy decision-maker can act on. A story that never generates results is simply a nice story.</>,
+            <>I hold a BA in Communication Studies (Public Relations and Marketing) from the <strong style={{ fontWeight: 600, color: "var(--terracotta)" }}>University of Media, Arts and Communication</strong> in Ghana, and a Fundamentals of Technology Sales certificate from the University of Maryland.</>,
           ].map((para, i) => (
             <p key={i} style={{ fontSize: "1.05rem", lineHeight: 1.8, color: "var(--espresso)", marginBottom: "1.25rem", fontWeight: 300 }}>
               {para}

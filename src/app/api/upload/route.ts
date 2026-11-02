@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
   const { blobs } = await list({ prefix: `portfolio/${slot}/` });
   await Promise.all(blobs.map((b) => del(b.url)));
 
-  // Upload new photo — public so the URL is directly accessible
+  // Upload new photo public so the URL is directly accessible
   const blob = await put(`portfolio/${slot}/${Date.now()}-${file.name}`, file, {
     access: "public",
     contentType: file.type,

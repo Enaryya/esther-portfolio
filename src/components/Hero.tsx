@@ -1,7 +1,8 @@
 "use client";
 
+import HeroMontage from "./HeroMontage";
+
 const CONSULT_URL = "https://calendar.app.google/yR45gSxZV96s3ji59";
-const HERO_PHOTO = "https://tl9be6ngkrkozmdl.public.blob.vercel-storage.com/portfolio/hero/1778029930219-image-1778026178285.jpg";
 
 export default function Hero() {
   return (
@@ -28,7 +29,7 @@ export default function Hero() {
           textTransform: "uppercase", color: "var(--terracotta)", marginBottom: "1.5rem",
         }}>
           <span style={{ width: 24, height: 1, background: "var(--terracotta)", flexShrink: 0, display: "inline-block" }} />
-          Communications · Content · Strategy · GTM
+          Journalism · GEO and Content Strategy · Enterprise Sales
         </div>
 
         <h1 className="fade-up fade-up-2" style={{
@@ -44,7 +45,7 @@ export default function Hero() {
           fontSize: "1.05rem", color: "var(--muted)", maxWidth: "40ch",
           marginTop: "1.75rem", lineHeight: 1.75, fontWeight: 300,
         }}>
-          I sit at the intersection of content strategy, demand generation, and GTM execution — building the messaging, pipeline, and content engine that connect them. Full-cycle sales too: prospecting, discovery, closing. Not just the top of the funnel.
+          I&rsquo;m a Ghanaian journalist and commercial strategist working where technology, sport and work meet across Africa. My reporting has run in the BBC, Al Jazeera, The Guardian and Deutsche Welle. That same research discipline now shapes how I build AI search visibility for UK brands and how I sell cybersecurity and cloud solutions to enterprises across Ghana.
         </p>
 
         {/* CTAs */}
@@ -70,7 +71,7 @@ export default function Hero() {
             Book a Consultation
           </a>
 
-          <a href="#contact" style={{
+          <a href="#writing" style={{
             padding: "0.85rem 2rem", background: "transparent", color: "var(--espresso)",
             fontFamily: "'DM Sans', sans-serif", fontSize: "0.82rem", fontWeight: 600,
             letterSpacing: "0.06em", textTransform: "uppercase", border: "1.5px solid var(--border)",
@@ -79,7 +80,7 @@ export default function Hero() {
           }}
             onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "var(--terracotta)"; el.style.color = "var(--terracotta)"; el.style.transform = "translateY(-2px)"; }}
             onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "var(--border)"; el.style.color = "var(--espresso)"; el.style.transform = "none"; }}
-          >Work With Me</a>
+          >Read My Reporting</a>
         </div>
 
         {/* Stats */}
@@ -87,7 +88,7 @@ export default function Hero() {
           display: "flex", gap: "2.5rem", marginTop: "3.5rem",
           paddingTop: "2rem", borderTop: "1px solid var(--border)",
         }}>
-          {[{ num: "6+", label: "Years Experience" }, { num: "8+", label: "Global Clients" }, { num: "3", label: "Continents" }].map((s) => (
+          {[{ num: "6+", label: "Years Experience" }, { num: "12+", label: "Global Clients" }, { num: "3", label: "Continents" }].map((s) => (
             <div key={s.label}>
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 700, color: "var(--espresso)", lineHeight: 1 }}>{s.num}</div>
               <div style={{ fontSize: "0.7rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--muted)", marginTop: "0.3rem" }}>{s.label}</div>
@@ -96,20 +97,11 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* RIGHT — photo panel */}
+      {/* RIGHT photo panel */}
       <div style={{ position: "relative", background: "var(--espresso)", overflow: "hidden", display: "flex", flexDirection: "column" }} className="hero-right">
-        {/* Photo — fills the panel */}
+        {/* Photo fills the panel */}
         <div style={{ flex: 1, position: "relative", overflow: "hidden" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={HERO_PHOTO}
-            alt="Esther Appiah-Fei"
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
-          />
-          <div style={{
-            position: "absolute", inset: 0,
-            background: "linear-gradient(to bottom, transparent 60%, rgba(30,26,21,0.6) 100%)",
-          }} />
+          <HeroMontage />
         </div>
 
         {/* Quote bar */}
@@ -118,7 +110,7 @@ export default function Hero() {
             &ldquo;Marketing can&rsquo;t be green when a business is red.&rdquo;
           </p>
           <div style={{ fontSize: "0.72rem", color: "var(--amber)", letterSpacing: "0.07em", marginTop: "0.5rem", opacity: 0.75 }}>
-            Esther Appiah-Fei, Communications and GTM Strategist
+            Esther Appiah-Fei, Journalist and Commercial Strategist
           </div>
         </div>
       </div>

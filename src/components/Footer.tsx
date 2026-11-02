@@ -13,7 +13,7 @@ export default function Footer() {
         Esther Owusua Appiah-Fei
       </div>
       <div style={{ fontSize: "0.72rem", color: "#3a2858", letterSpacing: "0.04em" }}>
-        © 2026 · Communications Strategist · Ghana
+        Journalist and Commercial Strategist · Accra, Ghana
       </div>
 
       <style>{`

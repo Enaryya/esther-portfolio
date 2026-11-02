@@ -3,15 +3,16 @@
 const CONSULT_URL = "https://calendar.app.google/yR45gSxZV96s3ji59";
 
 const services = [
-  { num: "01", title: "Demand Generation", desc: "Full-funnel demand gen strategy that fills pipeline and converts. Inbound and outbound programmes, lead scoring frameworks, nurture sequences, and campaign architecture built to generate qualified revenue, not just traffic." },
+  { num: "01", title: "Demand Generation", desc: "Full-funnel demand gen strategy that fills pipeline and converts. Inbound and outbound programmes, lead scoring frameworks, nurture sequences, and campaign architecture built to generate qualified revenue rather than traffic." },
   { num: "02", title: "Account-Based Marketing", desc: "Targeted ABM campaigns for high-value accounts. Personalised messaging, multi-channel outreach, intent data integration, and coordinated sales and marketing plays that shorten enterprise deal cycles." },
   { num: "03", title: "Full-Cycle Sales", desc: "Prospecting, discovery, pipeline management, negotiation, and closing. Outbound sequencing that books meetings, inbound qualification that converts, and the consultative approach that turns prospects into long-term clients." },
   { num: "04", title: "Paid Media and Performance Marketing", desc: "Paid social, search, and display campaigns optimised for conversion. Google Ads, Meta, and LinkedIn campaign management with GA4 tracking, attribution setup, and data-led iteration to drive measurable ROI." },
-  { num: "05", title: "SEO, GEO and Content Strategy", desc: "Semantic SEO, generative engine optimisation, and editorial content strategy that earns organic visibility at every stage of the funnel. Keyword research, content architecture, topic clustering, and authoritative long-form that ranks and converts." },
+  { num: "05", title: "SEO, GEO and Content Strategy", desc: "Semantic SEO and generative engine optimisation that earn visibility in Google and in AI answers from ChatGPT, Perplexity and Google's AI Overviews. I build topic clusters, prioritise the widest measured visibility gaps first, and write long-form content that holds up when an AI model checks its claims." },
   { num: "06", title: "GTM Strategy and Product Marketing", desc: "Go-to-market planning, positioning, and messaging for product launches and market expansion. ICP definition, competitive analysis, sales enablement materials, and the brand narrative that makes a new product impossible to ignore." },
-  { num: "07", title: "PR and Media Relations", desc: "Earned media strategy, press releases, media pitches, and spokesperson preparation. With bylines in BBC, Al Jazeera, The Guardian, and Olympics.com, I know what editors want and how to get your story placed." },
+  { num: "07", title: "PR and Media Relations", desc: "Earned media strategy, press releases, media pitches, and spokesperson preparation. With bylines in the BBC, Al Jazeera, The Guardian, Deutsche Welle, The Telegraph and Olympics.com, I know what editors want and how to get your story placed." },
   { num: "08", title: "Partnerships and Business Development", desc: "Identifying, negotiating, and closing strategic partnerships across media, tech, and international development. 40+ media partnerships negotiated, with experience spanning broadcast deals, NGO collaborations, and B2B commercial agreements." },
-  { num: "09", title: "Journalism and Editorial", desc: "Features, investigations, profiles, and cultural commentary published in international outlets. Long-form editorial that makes people stop scrolling, think differently, and share widely." },
+  { num: "09", title: "Journalism and Editorial", desc: "Features, profiles and analysis on women's sport, technology, AI governance and the African labour market, written for international outlets. My reporting is research-led and built to make readers stop, think and share." },
+  { num: "10", title: "Research and Thought Leadership", desc: "Research-led writing and strategy across cybersecurity, agentic AI, fintech and development in emerging economies. I study how regulation, infrastructure and new technology are reshaping markets like Ghana's, then turn that research into clear points of view that decision-makers can act on." },
 ];
 
 export default function Services() {
@@ -29,7 +30,7 @@ export default function Services() {
             color: "var(--cream)",
             marginBottom: "0.75rem",
           }}>
-            The full stack,<br />not just the top
+            Research, content and revenue<br />under one roof
           </h2>
         </div>
 
@@ -71,7 +72,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ── CONSULTATION CTA BANNER — middle of site ── */}
+      {/* Consultation CTA banner, middle of site */}
       <div className="consult-banner">
         <div className="consult-banner-text">
           <h3>Ready to work together?</h3>

@@ -3,17 +3,33 @@
 const cards = [
   {
     featured: true,
-    tag: "SUBJCT · Product Marketing",
-    title: "Building the Brand Voice for an AI-Powered Creative Company",
-    desc: "As Product Marketing Specialist at SUBJCT, I developed the full go-to-market messaging strategy and brand voice from the ground up. This included positioning frameworks, product narratives, and content systems that give the brand a clear, consistent identity across every touchpoint. The work centres on making AI feel human, relevant, and worth paying attention to.",
+    tag: "Restore Information Management · GEO and Content Strategy",
+    title: "Winning AI Search Visibility for a UK Records Management Leader",
+    desc: "Through Subjct AI, I built AI search visibility programmes for Restore across three topic clusters: digital mailroom, digital transformation and offsite records management. The roadmap opened with the queries where Restore trailed its largest competitor in ChatGPT and Perplexity answers. More than 12 pillar and spoke pieces moved from brief to first draft to full sub-edit through client sign-off. Every claim was anchored to named UK standards such as BS 10008, ISO 27001 and UK GDPR, alongside client-approved case studies.",
     outlet: "",
-    pills: ["Product Marketing", "Brand Strategy", "Copywriting"],
+    pills: ["GEO", "Semantic SEO", "Topic Clusters"],
+  },
+  {
+    featured: false,
+    tag: "Workspace Group · GEO Articles",
+    title: "Turning a London Office Provider's Blog into Topic Authority",
+    desc: "I proposed a strategy to move Workspace Group's content hub away from scattered blog output and towards authority on a small set of commercially important London office-space queries. The articles I wrote and sub-edited were each built with a direct answer up front, a TL;DR and a meta description, so they work for both Google and AI answer engines.",
+    outlet: "",
+    pills: ["GEO", "Content Strategy", "Long-form"],
+  },
+  {
+    featured: false,
+    tag: "Cyberteq Falcon · Enterprise Cybersecurity Sales",
+    title: "Making Cybersecurity Compliance Clear for Ghanaian Institutions",
+    desc: "Many Ghanaian institutions know they need stronger security, but few know where to start under the Cybersecurity Act 2020. I write VAPT proposals and information security pitches that turn those legal obligations into practical, costed plans that boards and IT leads can approve. The work spans universities, financial services firms and a newly established hospital.",
+    outlet: "",
+    pills: ["Cybersecurity", "Enterprise Sales", "Compliance"],
   },
   {
     featured: false,
     tag: "TRUE Africa · Broadcast and Partnerships",
     title: "Limitless Podcast: Practical Solutions to African Problems and Strengthening American Partnerships",
-    desc: "As Partnerships Head of Digital Media, I negotiated broadcast deals with Ghanaian radio stations and conducted editorial interviews for a pan-African podcast reaching English and French-speaking markets across the continent.",
+    desc: "As Partnerships Lead, I helped take the Limitless Africa podcast from one national radio placement to more than 200 stations in nine countries, reaching over two million listeners each week across English, French and Portuguese. One episode on Nigerian sprinters ranked eighth in Africa in the audio category of the 7th AIPS Sport Media Awards.",
     outlet: "TRUE Africa · Limitless Podcast",
     pills: [],
   },
@@ -41,7 +57,7 @@ export default function Work() {
         </div>
 
         <div
-          style={{ display: "grid", gridTemplateColumns: "1.3fr 1fr", gridTemplateRows: "auto auto", gap: "1.5px" }}
+          style={{ display: "grid", gridTemplateColumns: "1.3fr 1fr", gap: "1.5px" }}
           className="work-grid"
         >
           {cards.map((c, i) => (
