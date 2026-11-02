@@ -29,7 +29,7 @@ export default function Hero() {
           textTransform: "uppercase", color: "var(--terracotta)", marginBottom: "1.5rem",
         }}>
           <span style={{ width: 24, height: 1, background: "var(--terracotta)", flexShrink: 0, display: "inline-block" }} />
-          Journalism · GEO and Content Strategy · Enterprise Sales
+          Enterprise Sales · GEO and Content Strategy · Journalism
         </div>
 
         <h1 className="fade-up fade-up-2" style={{
@@ -45,7 +45,7 @@ export default function Hero() {
           fontSize: "1.05rem", color: "var(--muted)", maxWidth: "40ch",
           marginTop: "1.75rem", lineHeight: 1.75, fontWeight: 300,
         }}>
-          I&rsquo;m a Ghanaian journalist and commercial strategist working where technology, sport and work meet across Africa. My reporting has run in the BBC, Al Jazeera, The Guardian and Deutsche Welle. That same research discipline now shapes how I build AI search visibility for UK brands and how I sell cybersecurity and cloud solutions to enterprises across Ghana.
+          I&rsquo;m a commercial and business development strategist who helps technology companies turn complex products into enterprise revenue across emerging markets. I&rsquo;ve closed $100,000 in AWS cloud business from a pipeline I built myself, and I now manage cybersecurity accounts across banking, fintech and healthcare. Before sales, I was a journalist for the BBC, Al Jazeera and The Guardian, so I know how to find the story a buyer actually cares about.
         </p>
 
         {/* CTAs */}

@@ -1,11 +1,12 @@
 import Image from "next/image";
 
 const skills = [
-  "Sports Journalism", "AI Governance Reporting", "African Labour Market",
+  "AI Governance Reporting", "African Labour Market",
   "GEO and AI Search Visibility", "Semantic SEO", "Content Strategy",
   "Enterprise Sales", "Cybersecurity Sales", "Account Management",
   "GTM Strategy", "Partnerships", "Cybersecurity Research",
   "Agentic AI Research", "Fintech", "Development Strategy for Emerging Economies",
+  "Journalism",
 ];
 
 export default function About() {
@@ -52,8 +53,8 @@ export default function About() {
         {/* RIGHT body */}
         <div className="about-body scroll-reveal">
           {[
-            <>Hi, I&rsquo;m Esther, and I began my career as a sports journalist. Most of the stories I chased were ones that federations and broadcasters had overlooked, especially those of African women athletes. That reporting has since run in the BBC, Al Jazeera, The Guardian, Deutsche Welle, The Telegraph and Olympics.com, and it has been recognised at four consecutive editions of the AIPS Sport Media Awards. Over time my beat widened to technology, AI governance and the African labour market, because the questions I kept asking about athletes were really questions about work, money and power.</>,
-            <>Today I put that research to commercial use. Through London AI search agency Subjct AI, I plan and sub-edit GEO and semantic SEO programmes for UK brands such as Restore Information Management and Workspace Group, helping them get cited by ChatGPT, Perplexity and Google&rsquo;s AI Overviews. At Cyberteq Falcon, I manage enterprise cybersecurity accounts across banking, fintech, education, healthcare and energy. I have also built pipeline for an AWS Advanced Tier Partner and a global mobility platform, where my outbound converted at more than 80% from lead to meeting.</>,
+            <>Hi, I&rsquo;m Esther, and I started my career as a journalist. My reporting has run in the BBC, Al Jazeera, The Guardian, Deutsche Welle, The Telegraph and Olympics.com, covering technology, AI governance, labour markets and sport across emerging economies. Whatever the beat, I&rsquo;m drawn to the stories institutions would rather leave untold. Those stories usually come back to work, money and power, whether I&rsquo;m examining how AI gets regulated or who really profits from an athlete&rsquo;s labour. My sports reporting has also been recognised at four consecutive editions of the AIPS Sport Media Awards.</>,
+            <>That instinct now drives my commercial work. As an Enterprise Account Manager at Cyberteq Falcon, I manage cybersecurity accounts across banking, fintech, education, healthcare and energy. Through London AI search agency Subjct AI, I also plan and sub-edit GEO and semantic SEO programmes for UK brands such as Restore Information Management and Workspace Group, helping them get cited by ChatGPT, Perplexity and Google&rsquo;s AI Overviews. Earlier, I built pipeline for an AWS Advanced Tier Partner and a global mobility platform. At the mobility platform, my outbound converted more than 80% of leads into meetings.</>,
             <>Whatever the brief, my method stays the same. I research until I understand the reader or buyer better than the brief does, then I write and sell in plain language that a busy decision-maker can act on. A story that never generates results is simply a nice story.</>,
             <>I hold a BA in Communication Studies (Public Relations and Marketing) from the <strong style={{ fontWeight: 600, color: "var(--terracotta)" }}>University of Media, Arts and Communication</strong> in Ghana, and a Fundamentals of Technology Sales certificate from the University of Maryland.</>,
           ].map((para, i) => (
