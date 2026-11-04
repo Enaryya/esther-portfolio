@@ -1,5 +1,8 @@
 "use client";
 
+import Link from "next/link";
+import { samples } from "@/content/samples";
+
 const beats = [
   {
     num: "01",
@@ -40,6 +43,62 @@ const stories = [
     url: "https://www.opendemocracy.net/en/in-ghanas-markets-brotherly-bonds-with-nigeria-are-being-tested/",
   },
 ];
+
+const contentWriting = [
+  {
+    title: "The AI Search Divide: Understanding the Dual Market Shaping the Future of Digital Search",
+    outlet: "Subjct AI",
+    url: "https://www.subjct.ai/blog/the-ai-search-divide-understanding-the-dual-market-shaping-the-future-of-digital-search",
+  },
+  {
+    title: "Mastering the Art of Digital Publishing",
+    outlet: "Subjct AI",
+    url: "https://www.subjct.ai/blog/mastering-the-art-of-digital-publishing",
+  },
+  {
+    title: "The Power of Automation - Transforming Internal Linking in Digital Publishing",
+    outlet: "Subjct AI",
+    url: "https://www.subjct.ai/blog/the-power-of-automation-transforming-internal-linking-in-digital-publishing",
+  },
+  ...samples.map((s) => ({
+    title: s.title,
+    outlet: `Writing sample · ${s.client}`,
+    url: `/samples/${s.slug}`,
+  })),
+];
+
+const NEWSLETTER_URL = "https://limitlessafrica.substack.com/";
+const SAMPLES_FOLDER_URL = "https://drive.google.com/drive/folders/12EyU9qze3pV7_ErF0aQF8Uf9_uY15kvn?usp=sharing";
+const MUCK_RACK_URL = "https://muckrack.com/esther-owusua-appiah-fei";
+
+const isInternal = (url: string) => url.startsWith("/");
+
+function StoryList({ items }: { items: { title: string; outlet: string; url: string }[] }) {
+  return (
+    <ul style={{ listStyle: "none", borderTop: "1px solid #3d2070", marginTop: "1.25rem" }}>
+      {items.map((s) => {
+        const inner = (
+          <>
+            <span>
+              <span className="story-title">{s.title}</span>
+              <span className="story-outlet">{s.outlet}</span>
+            </span>
+            <span className="story-arrow"><ArrowIcon /></span>
+          </>
+        );
+        return (
+          <li key={s.url} style={{ borderBottom: "1px solid #3d2070" }}>
+            {isInternal(s.url) ? (
+              <Link href={s.url} className="story-link">{inner}</Link>
+            ) : (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" className="story-link">{inner}</a>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
 
 const ArrowIcon = ({ size = 16 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -96,27 +155,35 @@ export default function Writing() {
 
         <div style={{ marginTop: "4rem" }}>
           <div className="section-label light">Selected stories</div>
-          <ul style={{ listStyle: "none", borderTop: "1px solid #3d2070", marginTop: "1.25rem" }}>
-            {stories.map((s) => (
-              <li key={s.url} style={{ borderBottom: "1px solid #3d2070" }}>
-                <a href={s.url} target="_blank" rel="noopener noreferrer" className="story-link">
-                  <span>
-                    <span className="story-title">{s.title}</span>
-                    <span className="story-outlet">{s.outlet}</span>
-                  </span>
-                  <span className="story-arrow"><ArrowIcon /></span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          <StoryList items={stories} />
+        </div>
 
-          <a
-            href="https://muckrack.com/esther-owusua-appiah-fei"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="muckrack-link"
-          >
+        <div style={{ marginTop: "3.5rem" }}>
+          <div className="section-label light">GEO and content writing</div>
+          <StoryList items={contentWriting} />
+        </div>
+
+        <a href={NEWSLETTER_URL} target="_blank" rel="noopener noreferrer" className="newsletter-card scroll-reveal">
+          <span>
+            <span className="newsletter-kicker">Newsletter · Substack</span>
+            <span className="newsletter-title">Limitless Africa</span>
+            <span className="newsletter-body">
+              I wrote and championed the Limitless Africa newsletter on Substack. It extends the podcast&rsquo;s conversations on how Africans and Americans can work together for shared prosperity.
+            </span>
+          </span>
+          <span className="newsletter-cta">
+            Read the newsletter
+            <ArrowIcon size={14} />
+          </span>
+        </a>
+
+        <div className="writing-links">
+          <a href={MUCK_RACK_URL} target="_blank" rel="noopener noreferrer" className="muckrack-link">
             See every byline on Muck Rack
+            <ArrowIcon size={13} />
+          </a>
+          <a href={SAMPLES_FOLDER_URL} target="_blank" rel="noopener noreferrer" className="muckrack-link">
+            View more writing samples
             <ArrowIcon size={13} />
           </a>
         </div>
@@ -174,10 +241,39 @@ export default function Writing() {
           transition: color 0.2s, border-color 0.2s;
         }
         .muckrack-link:hover { color: var(--cream); border-color: var(--cream); }
+        .writing-links { display: flex; flex-wrap: wrap; gap: 0 2.5rem; }
+        .newsletter-card {
+          display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem;
+          margin-top: 3.5rem; padding: 2.25rem 2.5rem;
+          background: linear-gradient(135deg, #2e1258, #220c40);
+          border: 1px solid #3d2070;
+          text-decoration: none;
+          transition: border-color 0.2s, transform 0.2s;
+        }
+        .newsletter-card:hover { border-color: var(--amber); transform: translateY(-2px); }
+        .newsletter-kicker {
+          display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+          text-transform: uppercase; color: var(--amber);
+        }
+        .newsletter-title {
+          display: block; margin-top: 0.5rem;
+          font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--cream);
+        }
+        .newsletter-body {
+          display: block; margin-top: 0.6rem; max-width: 58ch;
+          font-size: 0.9rem; line-height: 1.7; color: #b8a8d0;
+        }
+        .newsletter-cta {
+          display: inline-flex; align-items: center; gap: 0.45rem; flex-shrink: 0;
+          font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+          color: var(--amber);
+        }
+        .newsletter-card:hover .newsletter-cta { color: var(--cream); }
         @media (max-width: 900px) {
           .writing-section { padding: 4rem 1.5rem !important; }
           .writing-beats { grid-template-columns: 1fr !important; }
           .story-title { font-size: 1.02rem; }
+          .newsletter-card { flex-direction: column; align-items: flex-start; padding: 1.75rem 1.5rem; }
         }
       `}</style>
     </section>

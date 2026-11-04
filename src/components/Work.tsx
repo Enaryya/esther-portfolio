@@ -1,6 +1,18 @@
 "use client";
 
-const cards = [
+import Link from "next/link";
+
+type Card = {
+  featured: boolean;
+  tag: string;
+  title: string;
+  desc: string;
+  outlet: string;
+  pills: string[];
+  links?: { label: string; href: string }[];
+};
+
+const cards: Card[] = [
   {
     featured: true,
     tag: "Restore Information Management · GEO and Content Strategy",
@@ -8,6 +20,10 @@ const cards = [
     desc: "Through Subjct AI, I built AI search visibility programmes for Restore across three topic clusters: digital mailroom, digital transformation and offsite records management. The roadmap opened with the queries where Restore trailed its largest competitor in ChatGPT and Perplexity answers. More than 12 pillar and spoke pieces moved from brief to first draft to full sub-edit through client sign-off. Every claim was anchored to named UK standards such as BS 10008, ISO 27001 and UK GDPR, alongside client-approved case studies.",
     outlet: "",
     pills: ["GEO", "Semantic SEO", "Topic Clusters"],
+    links: [
+      { label: "Read the digital transformation roadmap", href: "/samples/restore-digital-transformation-roadmap" },
+      { label: "Read the digital mailroom guide", href: "/samples/restore-digital-mailroom-guide" },
+    ],
   },
   {
     featured: false,
@@ -16,6 +32,9 @@ const cards = [
     desc: "I proposed a strategy to move Workspace Group's content hub away from scattered blog output and towards authority on a small set of commercially important London office-space queries. The articles I wrote and sub-edited were each built with a direct answer up front, a TL;DR and a meta description, so they work for both Google and AI answer engines.",
     outlet: "",
     pills: ["GEO", "Content Strategy", "Long-form"],
+    links: [
+      { label: "Read the article", href: "/samples/workspace-scaling-in-london" },
+    ],
   },
   {
     featured: false,
@@ -87,6 +106,19 @@ export default function Work() {
               <p style={{ fontSize: "0.875rem", lineHeight: 1.65, color: "var(--muted)" }}>
                 {c.desc}
               </p>
+              {c.links && (
+                <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginTop: "0.25rem" }}>
+                  {c.links.map((l) => (
+                    <Link key={l.href} href={l.href} className="work-read-link">
+                      {l.label}
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                      </svg>
+                    </Link>
+                  ))}
+                </div>
+              )}
               {c.pills.length > 0 && (
                 <div style={{ marginTop: "auto", paddingTop: "1.5rem" }}>
                   <div style={{ fontSize: "0.72rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--terracotta)", fontWeight: 600 }}>
@@ -106,6 +138,14 @@ export default function Work() {
       </div>
 
       <style>{`
+        .work-read-link {
+          display: inline-flex; align-items: center; gap: 0.4rem; align-self: flex-start;
+          font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+          color: var(--terracotta); text-decoration: none;
+          border-bottom: 1px solid rgba(124,58,237,0.3); padding-bottom: 0.1rem;
+          transition: color 0.2s, border-color 0.2s;
+        }
+        .work-read-link:hover { color: #6d28d9; border-color: #6d28d9; }
         @media (max-width: 900px) {
           .work-section { padding: 4rem 1.5rem !important; }
           .work-grid { grid-template-columns: 1fr !important; }
